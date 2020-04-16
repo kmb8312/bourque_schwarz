@@ -10,11 +10,9 @@ public class LasersPTUI {
      * The status of the game
      */
     public enum Status {
-        GOOD,
-        ERROR,
+        RUNNING,
         END
     }
-
     private Safe safe;
     private final static String ADD = "a";
     private final static String DISPLAY = "d";
@@ -22,36 +20,41 @@ public class LasersPTUI {
     private final static String QUIT = "q";
     private final static String REMOVE = "r";
     private final static String VERIFY = "v";
-    private PrintWriter userOut;
     private BufferedReader userIn;
     private Status status;
 
 
     public LasersPTUI(String[] args) {
         this.safe = new Safe();
-        this.status = Status.GOOD;
+        this.status = Status.RUNNING;
     }
+
+    /***
+     * runs a file input
+     * @param filename
+     * @throws FileNotFoundException
+     */
     public void readFile(String filename) throws FileNotFoundException {
         Scanner scanner = new Scanner(new File(filename));
         while(scanner.hasNextLine()){
             String[] string = scanner.nextLine().split(" ");
             if(string[0].equals(ADD)){
-
+                safe.add();
             }
             if(string[0].equals(DISPLAY)){
-
+                safe.display();
             }
             if(string[0].equals(HELP)){
-
+                safe.help();
             }
             if (string[0].equals(QUIT)) {
-
+                this.status = Status.END;
             }
             if (string[0].equals(REMOVE)) {
-
+                safe.remove();
             }
             if(string[0].equals(VERIFY)){
-
+                safe.verify();
             }
         }
     }
@@ -61,26 +64,25 @@ public class LasersPTUI {
      */
     public void run() throws IOException {
         this.userIn = new BufferedReader(new InputStreamReader(System.in));
-        this.userOut = new PrintWriter(System.out, true);
-        while (this.safe.getStatus() = Status.GOOD) {
+        while (this.safe.getStatus() = Status.RUNNING) {
             String input = this.userIn.readLine();
             if (input.equals(ADD)) {
-
+                safe.add();
             }
             if (input.equals(DISPLAY)) {
-
+                safe.display();
             }
             if (input.equals(HELP)) {
-
+                safe.help();
             }
             if (input.equals(QUIT)) {
                 this.status = Status.END;
             }
             if (input.equals(REMOVE)) {
-
+                safe.remove();
             }
             if (input.equals(VERIFY)) {
-
+                safe.verify();
             }
         }
     }
