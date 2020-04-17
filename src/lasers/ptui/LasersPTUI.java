@@ -69,23 +69,23 @@ public class LasersPTUI {
     public void run() throws IOException {
         this.userIn = new BufferedReader(new InputStreamReader(System.in));
         while (this.safe.getStatus() = Status.RUNNING) {
-            String input = this.userIn.readLine();
-            if (input.equals(ADD)) {
+            String[] input = this.userIn.readLine().split(" ");
+            if (input[0].equals(ADD)) {
                 safe.add();
             }
-            if (input.equals(DISPLAY)) {
+            if (input[0].equals(DISPLAY)) {
                 safe.display();
             }
-            if (input.equals(HELP)) {
+            if (input[0].equals(HELP)) {
                 safe.help();
             }
-            if (input.equals(QUIT)) {
+            if (input[0].equals(QUIT)) {
                 this.status = Status.END;
             }
-            if (input.equals(REMOVE)) {
+            if (input[0].equals(REMOVE)) {
                 safe.remove();
             }
-            if (input.equals(VERIFY)) {
+            if (input[0].equals(VERIFY)) {
                 safe.verify();
             }
         }
