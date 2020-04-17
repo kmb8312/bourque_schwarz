@@ -5,6 +5,10 @@ import lasers.model.Safe;
 import java.io.*;
 import java.util.Scanner;
 
+/***
+ * This class handles the user inputs
+ * Author: Peter Schwarzkopf
+ */
 public class LasersPTUI {
     /***
      * The status of the game
