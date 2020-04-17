@@ -43,7 +43,7 @@ public class LasersPTUI {
         while(scanner.hasNextLine()){
             String[] string = scanner.nextLine().split(" ");
             if(string[0].equals(ADD)){
-                safe.add();
+                safe.add(string[1],string[2]);
             }
             if(string[0].equals(DISPLAY)){
                 safe.display();
@@ -55,7 +55,7 @@ public class LasersPTUI {
                 this.status = Status.END;
             }
             if (string[0].equals(REMOVE)) {
-                safe.remove();
+                safe.remove(string[1],string[2]);
             }
             if(string[0].equals(VERIFY)){
                 safe.verify();
@@ -71,7 +71,7 @@ public class LasersPTUI {
         while (this.safe.getStatus() = Status.RUNNING) {
             String[] input = this.userIn.readLine().split(" ");
             if (input[0].equals(ADD)) {
-                safe.add();
+                safe.add(input[1],input[2]);
             }
             if (input[0].equals(DISPLAY)) {
                 safe.display();
@@ -83,7 +83,7 @@ public class LasersPTUI {
                 this.status = Status.END;
             }
             if (input[0].equals(REMOVE)) {
-                safe.remove();
+                safe.remove(input[1],input[2]);
             }
             if (input[0].equals(VERIFY)) {
                 safe.verify();
